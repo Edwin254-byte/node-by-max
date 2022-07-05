@@ -8,7 +8,15 @@ const route = express.Router();
 route.get('/', (req, res, next) => {
   console.log('shop js', adminRoute.products);
   //res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-  res.render('shop', { prods: adminRoute.products, title: 'Shop', path: '/' });
+  const products = adminRoute.products;
+  res.render('shop', {
+    prods: products,
+    title: 'Shop',
+    path: '/',
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true,
+  });
 });
 
 module.exports = route;

@@ -4,10 +4,27 @@ const adminRoute = require('./routers/admin.js');
 const shopRoute = require('./routers/shop.js');
 const app = express();
 const path = require('path');
+//const expressHbs = require('express-handlebars');
 
-//configuring pug templating engine
-app.set('view engine', 'pug');
+//configuring ejs
+app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+/* //configuring express handlebars
+app.engine(
+  'hbs',
+  expressHbs({
+    layoutDir: '/views/layouts',
+    defaultLayout: 'main-layout',
+    extname: 'hbs',
+  })
+);
+app.set('view engine', 'hbs');
+app.set('views', 'views'); */
+
+/* //configuring pug templating engine
+app.set('view engine', 'pug');
+app.set('views', 'views'); */
 
 //app.use(bodyParser(urlencoded({ extended: false })));
 app.use(express.json());
